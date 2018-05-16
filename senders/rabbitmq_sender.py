@@ -1,7 +1,10 @@
+from senders.sender import *
 
-class RabbitmqSender:
+class RabbitmqSender(Sender):
         
-    def send(self):
-        print self.grafana_alert
+    def send(self, grafana_alert):
+        print grafana_alert
+        print grafana_alert["ruleId"]
+        print grafana_alert["state"]
         
          

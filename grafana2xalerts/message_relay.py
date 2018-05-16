@@ -2,6 +2,7 @@ from BaseHTTPServer import HTTPServer, BaseHTTPRequestHandler
 from optparse import OptionParser
 
 from senders.rabbitmq_sender import *
+from senders.sender import *
 
 class MessageRelay(BaseHTTPRequestHandler):
         
@@ -10,9 +11,9 @@ class MessageRelay(BaseHTTPRequestHandler):
         request_headers = self.headers
         content_length = request_headers.getheaders('content-length')
         length = int(content_length[0]) if content_length else 0
-        alert_message = self.rfile.read(length)        
+        grafana_alert = self.rfile.read(length)        
         sender = self.get_sender()
-        sender.send(alert_message)
+        sender.send(grafana_alert)
         sender = None
         self.send_response(200)
         
