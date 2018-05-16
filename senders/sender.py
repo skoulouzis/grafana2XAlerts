@@ -2,8 +2,9 @@ from abc import ABCMeta, abstractmethod
 
 class Sender:        
     
+    @abstractmethod
     def __init__(self,server_details):
-        self.server_details = server_details
+        pass
         
     @abstractmethod
     def send(self,message):

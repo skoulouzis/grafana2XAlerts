@@ -20,6 +20,8 @@ class MessageRelay(BaseHTTPRequestHandler):
         
     def get_sender(self):
         server_details = {}
-        server_details["host"] = ""
-        server_details["port"] = ""
+        server_details["host"] = "localhost"
+        server_details["port"] = "15672"
+        server_details["user"] = "guest"
+        server_details["password"] = "guest"
         return RabbitmqSender(server_details)
